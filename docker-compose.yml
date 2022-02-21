@@ -12,12 +12,12 @@ services:
             max-size: 10m
             max-file: "3"
         ports:
-          - '5438:5432'
+          - '5432:5432'
         volumes:
           - ./postgres-data:/var/lib/postgresql/data
           # copy the sql script to fill person
           - ./sql/person.sql:/docker-entrypoint-initdb.d/person.sql
-          - ./sql/car.sql:/docker-entrypoint-initdb.d/car.sql
+          #- ./sql/car.sql:/docker-entrypoint-initdb.d/car.sql
     ubuntu:
         build: ./cpp_env
         image: cpp_env
